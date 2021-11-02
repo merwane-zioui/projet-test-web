@@ -3,8 +3,8 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link rel="stylesheet" type="text/css" href="css/bootstrap.css"/>
-		<script type="text/javascript" src="js/bootstrap.bundle.js"></script>
+		<link rel="stylesheet" type="text/css" href="./public/css/bootstrap.css"/>
+		<script type="text/javascript" src="./public/js/bootstrap.bundle.js"></script>
 	</head>
 
 	<body>
@@ -20,40 +20,26 @@
 				<div class="navbar-collapse collapse" id="barre">
 					<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 						<li class="nav-item">
-							<a class="nav-link" href="index.html">Home</a>
+							<a class="nav-link" href="./index.php">Home</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="shop.html">Products</a>
+							<a class="nav-link" href="./index.php?action=shop">Products</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="profile.html">Profile</a>
+							<a class="nav-link" href="./index.php?action=profile">Profile</a>
 						</li>
 					</ul>
 						<a class="text-light me-2">Hello !</a>
 						<a class="btn btn-outline-light nav-link me-2" href="">Sign out</a>
-						<a class="btn btn-outline-light nav-link me-2" href="#">Sign in</a>
-						<a class="btn btn-outline-light nav-link me-2" href="signup.html">Sign up</a>
+						<a class="btn btn-outline-light nav-link me-2" href="./index.php?action=login">Sign in</a>
+						<a class="btn btn-outline-light nav-link me-2" href="./index.php?action=signup">Sign up</a>
 				</div>
 			</nav>
 		</header>
 
 		<main>
 			<div class="container">
-
-				<h1>Sign in</h1>
-				<div class="d-flex justify-content-center bg-light rounded p-5">
-					<form method="POST">
-						<div class="form-floating mb-3">
-							<label for="id_username">Username</label>
-						</div>
-						<div class="form-floating mb-3">
-							<label for="id_password">Password</label>
-						</div>
-						<button class="btn btn-primary col-auto" type="submit">Sign in</button>
-						<a href="">No account ? Sign up now</a>
-					</form>
-				</div>
-
+				<?= $content ?>
 			</div>
 		</main>
 	</body>
