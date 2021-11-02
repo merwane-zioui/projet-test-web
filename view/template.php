@@ -1,3 +1,9 @@
+<?php
+
+session_start();
+
+?>
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -29,10 +35,22 @@
 							<a class="nav-link" href="./index.php?action=profile">Profile</a>
 						</li>
 					</ul>
+
+					<?php
+					if(isset($_SESSION['id'])) {
+					?>
 						<a class="text-light me-2">Hello !</a>
 						<a class="btn btn-outline-light nav-link me-2" href="">Sign out</a>
+					<?php
+					}
+					else {
+					?>
 						<a class="btn btn-outline-light nav-link me-2" href="./index.php?action=login">Sign in</a>
 						<a class="btn btn-outline-light nav-link me-2" href="./index.php?action=signup">Sign up</a>
+					<?php
+					}
+					?>
+					
 				</div>
 			</nav>
 		</header>

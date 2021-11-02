@@ -7,6 +7,7 @@ function index() {
 }
 
 function shop() {
+	$products = getProducts();
 	require('./view/shopView.php');
 }
 
@@ -20,4 +21,9 @@ function login() {
 
 function signup() {
 	require('./view/signupView.php');
+}
+
+function detail() {
+	$product = getProduct();
+	require('./view/detailView.php');
 }

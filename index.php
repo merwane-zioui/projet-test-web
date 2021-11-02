@@ -11,6 +11,14 @@ if (isset($_GET['action'])) {
 	elseif ($_GET['action'] == 'login') {
 		login();
 	}
+	elseif ($_GET['action'] == 'detail') {
+		if (isset($_GET['id']) && $_GET['id'] > 0) {
+            detail();
+        }
+        else {
+            echo 'Erreur : aucun identifiant de billet envoyé';
+        }
+	}
 	else {
 		signup();
 	}
