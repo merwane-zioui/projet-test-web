@@ -1,18 +1,28 @@
 <?php ob_start(); ?>
 
 <h1>Sign in</h1>
-<div class="d-flex justify-content-center bg-light rounded p-5">
-	<form method="POST">
-		<div class="form-floating mb-3">
-			<label for="id_username">Username</label>
+<form>			
+	<div class="row">
+		<div class="col-sm-12">
+			<label for="adressemail">Adresse mail</label>
+			<input class="form-control" type="email" name="adressemail" placeholder="Entrez une adresse mail" autocomplete="email"/>
 		</div>
-		<div class="form-floating mb-3">
-			<label for="id_password">Password</label>
+	</div>
+		
+	<div class="row">
+		<div class="col-sm-12">
+			<label for="mdp">Mot de passe</label>
+			<input class="form-control" type="password" name="mdp" placeholder="Mot de passe" autocomplete="off"/>
+			<small class="form-text text-muted">Nous ne partagerons pas votre mot de passe.</small>
 		</div>
-		<button class="btn btn-primary col-auto" type="submit">Sign in</button>
-		<a href="">No account ? Sign up now</a>
-	</form>
-</div>
+	</div>
+
+	<div class="row">
+		<div class="col">
+			<input class="btn btn-light" name="ok" value="Se connecter"/>
+		</div>
+	</div>
+</form>
 
 <?php $content = ob_get_clean(); ?>
 
