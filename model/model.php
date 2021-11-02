@@ -26,4 +26,26 @@ function getProduct() {
 	return $product;
 }
 
+class User {
+	public string $name;
+	public string $surname;
+	public string $email;
+	public string $mdp;
+
+	public function __construct(string $name, string $surname, string $email, string $mdp) {
+		$this->name = $name;
+		$this->surname = $surname;
+		$this->email = $email;
+		$this->mdp = $mdp;
+	}
+
+	public function addUser() {
+		$connexion=mysqli_connect("localhost","root","");
+		$ok=mysqli_select_db($connexion, "bdprojet") or die ("Connexion à  la bd impossible");
+
+		$query = "INSERT INTO users (mdp,prenom,email,nom) VALUES (AES_ENCRYPT('$this->mdp', 'cledusite1234'), '$this->name', '$this->email', '$this->surname')";
+		mysqli_query($connexion,$query);
+	}
+}
+
 ?>

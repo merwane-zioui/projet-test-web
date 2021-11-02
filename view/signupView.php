@@ -25,6 +25,7 @@
 	<input class="btn btn-light" name="ok" value="Se connecter"/>
 </form>
 
+<script type="text/javascript" src="./public/js/inscription.js"></script>
 <?php $content = ob_get_clean(); ?>
 
 <?php require('template.php'); ?>
