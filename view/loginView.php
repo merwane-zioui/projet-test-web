@@ -24,6 +24,7 @@
 	</div>
 </form>
 
+<script type="text/javascript" src="./public/js/connexion.js"></script>
 <?php $content = ob_get_clean(); ?>
 
 <?php require('template.php'); ?>

@@ -40,7 +40,9 @@ session_start();
 					if(isset($_SESSION['id'])) {
 					?>
 						<a class="text-light me-2">Hello !</a>
-						<a class="btn btn-outline-light nav-link me-2" href="">Sign out</a>
+						<form class='d-flex' method='POST' action='model/deconnexion.php'>
+							<button class="btn btn-outline-light nav-link me-2" type="submit">Sign out</button>
+						</form>
 					<?php
 					}
 					else {

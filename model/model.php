@@ -1,8 +1,13 @@
 <?php
 
-function getProducts() {
+function connect_db() {
 	$connexion=mysqli_connect("localhost","root","");
 	$ok=mysqli_select_db($connexion, "dbsite") or die ("Connexion à  la bd impossible");
+	return $connexion;
+}
+
+function getProducts() {
+	$connexion=connect_db();
 	$query = "SELECT productid, brand, name, description, price FROM products ORDER BY productid";
 	$sql_products = mysqli_query($connexion,$query)  or die(mysqli_error($connexion));
 
@@ -17,8 +22,7 @@ function getProducts() {
 }
 
 function getProduct() {
-	$connexion=mysqli_connect("localhost","root","");
-	$ok=mysqli_select_db($connexion, "dbsite") or die ("Connexion à  la bd impossible");
+	$connexion=connect_db();
 	$query = "SELECT * FROM products WHERE productid=".$_GET['id']."";
 	$sql_product = mysqli_query($connexion,$query)  or die(mysqli_error($connexion));
 
@@ -40,12 +44,31 @@ class User {
 	}
 
 	public function addUser() {
-		$connexion=mysqli_connect("localhost","root","");
-		$ok=mysqli_select_db($connexion, "bdprojet") or die ("Connexion à  la bd impossible");
+		$connexion=connect_db();
 
 		$query = "INSERT INTO users (mdp,prenom,email,nom) VALUES (AES_ENCRYPT('$this->mdp', 'cledusite1234'), '$this->name', '$this->email', '$this->surname')";
 		mysqli_query($connexion,$query);
 	}
+
+	/*public function getUser() {
+		$connexion = connect_db();
+
+		$mail = $connexion->real_escape_string($this->mail);
+		$mdp = $connexion->real_escape_string($this->mdp);
+
+		$query = "SELECT * FROM users WHERE mdp=AES_ENCRYPT('$mdp', 'cledusite1234') AND email='$mail'";
+		$sql = mysqli_query($connexion,$query) or die (mysqli_error($connexion));
+
+		if(mysqli_num_rows($sql) == 1) {
+			$recup_id = mysqli_fetch_object($sql);
+			$id = $recup_id->id;
+			$_SESSION['id'] = $id;
+			return true;
+		}
+		else{
+			return false;
+		}
+	}*/
 }
 
 ?>
