@@ -1,6 +1,6 @@
 <?php ob_start(); ?>
 
-<h1>Product</h1>
+<h2 class="pb-2 border-bottom">Product</h2>
 
 <p><?= $product['brand'].' '.$product['name'] ?></p>
 <p>Price - $<?= $product['price'] ?></p>

@@ -1,6 +1,6 @@
 <?php ob_start(); ?>
 
-<h1>Sign in</h1>
+<h2 class="pb-2 border-bottom">Sign in</h2>
 <form>			
 	<div class="row">
 		<div class="col-sm-12">
