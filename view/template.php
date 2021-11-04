@@ -31,27 +31,33 @@ session_start();
 						<li class="nav-item">
 							<a class="nav-link" href="./index.php?action=shop">Products</a>
 						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="./index.php?action=profile">Profile</a>
-						</li>
 					</ul>
 
-					<?php
-					if(isset($_SESSION['id'])) {
-					?>
-						<a class="text-light me-2">Hello !</a>
-						<form class='d-flex' method='POST' action='model/deconnexion.php'>
-							<button class="btn btn-outline-light nav-link me-2" type="submit">Sign out</button>
-						</form>
-					<?php
-					}
-					else {
-					?>
-						<a class="btn btn-outline-light nav-link me-2" href="./index.php?action=login">Sign in</a>
-						<a class="btn btn-outline-light nav-link me-2" href="./index.php?action=signup">Sign up</a>
-					<?php
-					}
-					?>
+					<div class="dropdown">
+						<a class="btn btn-outline-light dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+							Profile
+						</a>
+						<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+							<?php
+							if(isset($_SESSION['id'])) {
+							?>
+								<li><a class="dropdown-item">Hello !</a></li>
+								<li><a class="dropdown-item" href="./index.php?action=profile">Profile</a></li>
+								<li><form method='POST' action='model/deconnexion.php'>
+									<button class="btn btn-outline-light dropdown-item me-2" type="submit">Sign out</button>
+								</form>
+								</li>
+							<?php
+							}
+							else {
+							?>
+								<li><a class="btn btn-outline-light dropdown-item me-2" href="./index.php?action=login">Sign in</a></li>
+								<li><a class="btn btn-outline-light dropdown-item me-2" href="./index.php?action=signup">Sign up</a></li>
+							<?php
+							}
+							?>
+						</ul>
+					</div>
 					
 				</div>
 			</nav>
