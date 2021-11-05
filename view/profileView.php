@@ -1,6 +1,6 @@
 <?php ob_start(); ?>
 
-Page profile
+<h2 class="pb-2 border-bottom">Your account</h2>
 
 <?php $content = ob_get_clean(); ?>
 

@@ -16,7 +16,7 @@ if (isset($_GET['action'])) {
             detail();
         }
         else {
-            echo 'Erreur : aucun identifiant de billet envoyé';
+            echo 'Erreur : aucun identifiant de produit envoyé';
         }
 	}
 	else {

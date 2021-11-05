@@ -19,7 +19,7 @@ session_start();
 			<nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4" id="header">
 				<div class="container">
 					<a class="navbar-brand ms-3" href="">
-						<img src="" alt="CTAstro" height="40">
+						<img src="" alt="SneakShop" height="40">
 					</a>
 					<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#barre" aria-controls="barre" aria-expanded="false" aria-label="Toggle navigation">
 						<span class="navbar-toggler-icon"></span>
