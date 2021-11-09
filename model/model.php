@@ -1,7 +1,12 @@
 <?php
 
+const SERVER_HOST = "localhost";
+const DB_USER = "root";
+const DB_PASSWORD = "";
+const REQUESTED_DB = "dbsite";
+
 function connect_db() :? mysqli {
-	$connexion = new mysqli("localhost","root","", "dbsite") or die ("Connexion à  la bd impossible");
+	$connexion = new mysqli(SERVER_HOST, DB_USER, DB_PASSWORD, REQUESTED_DB) or die ("Connexion à  la bd impossible");
 	return $connexion;
 }
 
