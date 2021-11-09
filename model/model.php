@@ -1,15 +1,14 @@
 <?php
 
-function connect_db() {
-	$connexion=mysqli_connect("localhost","root","");
-	$ok=mysqli_select_db($connexion, "dbsite") or die ("Connexion à  la bd impossible");
+function connect_db() :? mysqli {
+	$connexion = new mysqli("localhost","root","", "dbsite") or die ("Connexion à  la bd impossible");
 	return $connexion;
 }
 
 function getProducts() {
 	$connexion=connect_db();
 	$query = "SELECT productid, brand, name, description, price FROM products ORDER BY productid";
-	$sql_products = mysqli_query($connexion,$query)  or die(mysqli_error($connexion));
+	$sql_products = $connexion->query($query);
 
 	$products = array();
 	
@@ -24,7 +23,7 @@ function getProducts() {
 function getProduct() {
 	$connexion=connect_db();
 	$query = "SELECT * FROM products WHERE productid=".$_GET['id']."";
-	$sql_product = mysqli_query($connexion,$query)  or die(mysqli_error($connexion));
+	$sql_product = $connexion->query($query);
 
 	$product = $sql_product->fetch_array();
 	return new Product($product['productid'], $product['brand'], $product['name'], $product['description'], $product['price']);
@@ -63,7 +62,7 @@ class User {
 		$connexion=connect_db();
 
 		$query = "INSERT INTO users (mdp,prenom,email,nom) VALUES (AES_ENCRYPT('$this->mdp', 'cledusite1234'), '$this->name', '$this->email', '$this->surname')";
-		mysqli_query($connexion,$query);
+		$connexion->query($query);
 	}
 
 	/*public function getUser() {
