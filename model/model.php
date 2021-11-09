@@ -15,7 +15,7 @@ function getProducts() {
 	
 	if(mysqli_num_rows($sql_products) > 0) {
 		while($product = $sql_products->fetch_array()) {
-		$products[] = $product;
+		$products[] = new Product($product['productid'], $product['brand'], $product['name'], $product['description'], $product['price']);
 		}
 	}
 	return $products;
@@ -27,7 +27,23 @@ function getProduct() {
 	$sql_product = mysqli_query($connexion,$query)  or die(mysqli_error($connexion));
 
 	$product = $sql_product->fetch_array();
-	return $product;
+	return new Product($product['productid'], $product['brand'], $product['name'], $product['description'], $product['price']);
+}
+
+class Product {
+	public int $productid;
+	public string $brand;
+	public string $name;
+	public string $description;
+	public float $price;
+
+	public function __construct(int $pid, string $pb, string $pn, string $pd, float $pp) {
+		$this->productid = $pid;
+		$this->brand = $pb;
+		$this->name = $pn;
+		$this->description = $pd;
+		$this->price = $pp;
+	}
 }
 
 class User {
