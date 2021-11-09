@@ -1,6 +1,6 @@
 <?php
 
-include('model.php');
+require_once('model.php');
 
 $nom=htmlspecialchars($_REQUEST['surname']);
 $prenom=htmlspecialchars($_REQUEST['name']);
